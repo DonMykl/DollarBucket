@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_menu_home">Home</string>
+    <string name="nav_menu_users">Users</string>
+
+    <string name="nav_header_background">Nav Header Background</string>
+    <string name="placeholder_image">Placeholder Image</string>
+    <string name="delete_icon">Delete Icon</string>
+    <string name="favorite_icon">Favorite Icon</string>
+
+    <string name="user">User</string>
+    <string name="add_user_list">Add User</string>
+</resources>
