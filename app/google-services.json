@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "560565497319",
+    "project_id": "dollarbucket-db1a5",
+    "storage_bucket": "dollarbucket-db1a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560565497319:android:a0ce85ce13d7436e656142",
+        "android_client_info": {
+          "package_name": "com.donmykl.dollarbucket"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTbCpRsdH2Ezs6sHl92ecH5MyYgkkP3NU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

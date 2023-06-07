@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">DollarBucket</string>
+    <string name="add_user_buttton" />
+    <string name="save_button">Button</string>
+    <string name="user_amount" />
+    <string name="user_name" />
+    <string name="save">SAVE</string>
+    <string name="amount">Amount</string>
+    <string name="name">Name</string>
+    <string name="collected">Collected</string>
+    <string name="balance">Balance</string>
+    <string name="date">Date</string>
+    <string name="Change_Date">Change Date</string>
+    <string name="user_balance" />
+    <string name="date_displayed_here">Date Displayed here</string>
+    <string name="displayed_date">Date\n</string>
 </resources>
