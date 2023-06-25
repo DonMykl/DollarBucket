@@ -13,5 +13,5 @@
     <string name="Change_Date">Change Date</string>
     <string name="user_balance" />
     <string name="date_displayed_here">Date Displayed here</string>
-    <string name="displayed_date">Date\n</string>
+    <string name="displayed_date">Date</string>
 </resources>

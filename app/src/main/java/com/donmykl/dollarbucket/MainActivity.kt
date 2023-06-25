@@ -14,12 +14,15 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.donmykl.dollarbucket.user.UserFragment
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
@@ -42,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val query: Query = FirebaseFirestore.getInstance().collection("users")
+        //val query: Query = FirebaseFirestore.getInstance().collection("users")
 
         // Initialize Views
         toolbar         = findViewById(R.id.activity_main_toolbar)
@@ -63,88 +66,14 @@ class MainActivity : AppCompatActivity() {
         navigationView.setupWithNavController(navController)
 
         //Floating action button that launches the add user Fragment(MainActivity)
-        val fab: View = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            /*val activityIntent = Intent(this, UserFragment::class.java)
-            startActivity(activityIntent)*/
-        }
-        //Calendar
-        val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
-
-
-        val textView: TextView = findViewById(R.id.tv_picked_date)
-        textView.text = SimpleDateFormat("dd.MM.yyyy").format(System.currentTimeMillis())
-        val pickDateBtn : ImageButton = findViewById(R.id.button_pick_date)
-
-        val dpd = DatePickerDialog.OnDateSetListener{view, year, monthOfYear, dayOfMonth ->
-            c.set(Calendar.YEAR, year)
-            c.set(Calendar.MONTH, monthOfYear)
-            c.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-
-            val myFormat = "dd.MM.yyyy"
-            val sdf = SimpleDateFormat(myFormat, Locale.US)
-            textView.text = sdf.format(c.time)
-            //button click to show DatePickerDialog
-        }
-        pickDateBtn.setOnClickListener{
-            DatePickerDialog(this,dpd,
-            c.get(Calendar.YEAR),
-            c.get(Calendar.MONTH),
-            c.get(Calendar.DAY_OF_MONTH)).show()
-        }
-
-        val button: Button = findViewById(R.id.button_save)
-        button.setOnClickListener {
-
-            val nameText = findViewById<EditText>(R.id.textUserName).text.toString()
-            val amountText = findViewById<EditText>(R.id.textUserAmount).text.toString().toInt()
-            val collectedText = findViewById<EditText>(R.id.textUserCollected).text.toString().toInt()
-            val balanceText = findViewById<EditText>(R.id.textUserBalance).text.toString().toInt()
-            // Code here executes on main thread after user presses button
-            //val nameText = userNameText.text.toString()
-            //val amountText = userAmountText.text.toString()
-            //val collectedText = userCollectedText.text.toString()
-            //val balanceText = userBalanceText.text.toString()
-            val date = Timestamp(c.time)
-
-            saveFireStore(nameText, amountText, collectedText, balanceText, date)
+        //val fab: FloatingActionButton = findViewById(R.id.fab)
+        //fab.setOnClickListener { view ->
+          //  val manager : FragmentManager = supportFragmentManager
+            //val transaction: FragmentTransaction = manager.beginTransaction()
+            //transaction.replace(R.id.)
 
         }
-    }
 
-    fun saveFireStore(
-        nameText: String,
-        amountText: Number,
-        collectedText: Number,
-        balanceText: Number,
-        date: Timestamp,
-
-    ) {
-        val db = FirebaseFirestore.getInstance()
-
-        //HashMap that stores the Key-Value pair of the Name and Amount the User inputs
-        val user : HashMap <String, Any> = HashMap()
-        user.put("name", nameText)
-        user.put("amount", amountText)
-        user.put("collected", collectedText)
-        user.put("balance", balanceText)
-        user.put("date", date)
-
-        db.collection("users")
-            .add(user)
-            .addOnSuccessListener {
-                Toast.makeText(this@MainActivity, "user added successfully", Toast.LENGTH_SHORT)
-                    .show()
-            }
-            .addOnFailureListener{Toast.makeText(this@MainActivity, "user failed to be added", Toast.LENGTH_SHORT)
-                .show()
-
-            }
-
-    }
     override fun onBackPressed() {
         if (drawerLayout.isOpen) {
             drawerLayout.close()

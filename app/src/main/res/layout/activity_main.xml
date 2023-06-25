@@ -13,103 +13,7 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/textUserName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:ems="10"
-                android:hint="@string/name"
-                android:inputType="textPersonName|textCapWords"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/textUserAmount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="@string/amount"
-                android:inputType="number"
-                app:layout_constraintEnd_toEndOf="@+id/textUserName"
-                app:layout_constraintStart_toStartOf="@+id/textUserName"
-                app:layout_constraintTop_toBottomOf="@+id/textUserName"/>
-            <EditText
-                android:id="@+id/textUserCollected"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="@string/collected"
-                android:inputType="number"
-                app:layout_constraintEnd_toEndOf="@+id/textUserAmount"
-                app:layout_constraintStart_toStartOf="@+id/textUserAmount"
-                app:layout_constraintTop_toBottomOf="@+id/textUserAmount" />
-            <EditText
-                android:id="@+id/textUserBalance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="@string/balance"
-                android:inputType="number"
-                app:layout_constraintEnd_toEndOf="@+id/textUserCollected"
-                app:layout_constraintStart_toStartOf="@+id/textUserCollected"
-                app:layout_constraintTop_toBottomOf="@+id/textUserCollected" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_picked_date"
-                android:layout_width="334dp"
-                android:layout_height="45dp"
-                android:hint="@string/date"
-                android:padding="5dp"
-                app:layout_constraintEnd_toStartOf="@+id/button_pick_date"
-                app:layout_constraintRight_toLeftOf="@+id/button_pick_date"
-
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textUserBalance" />
-
-
-            <ImageButton
-                android:id="@+id/button_pick_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:calendarViewShown="false"
-                android:src="@drawable/calendar_month_db"
-                app:layout_constraintEnd_toEndOf="@id/textUserBalance"
-                app:layout_constraintLeft_toRightOf="@id/tv_picked_date"
-                app:layout_constraintTop_toBottomOf="@+id/textUserBalance"
-                />
-
-
-
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/save"
-                app:layout_constraintEnd_toEndOf="@+id/button_pick_date"
-                app:layout_constraintTop_toBottomOf="@+id/button_pick_date" />
-
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/nav_host_frag"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:defaultNavHost="true"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                app:navGraph="@navigation/nav_graph"
-                tools:layout_editor_absoluteX="2dp"
-                tools:layout_editor_absoluteY="69dp" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.appbar.AppBarLayout
             style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
@@ -126,7 +30,18 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_frag"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:navGraph="@navigation/nav_graph"
+             />
+
+        <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -135,7 +50,9 @@
             android:contentDescription="@string/add_user_buttton"
             android:src="@drawable/baseline_add_24">
 
-        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+        </com.google.android.material.floatingactionbutton.FloatingActionButton> -->
+
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
