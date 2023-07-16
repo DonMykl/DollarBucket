@@ -11,7 +11,6 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.donmykl.dollarbucket.MainActivity
 import com.donmykl.dollarbucket.R
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
@@ -56,11 +55,6 @@ class AddUserListFragment : Fragment(){
             val amountText = view.findViewById<EditText>(R.id.textUserAmount).text.toString().toLong()
             val collectedText = view.findViewById<EditText>(R.id.textUserCollected).text.toString().toLong()
             val balanceText = view.findViewById<EditText>(R.id.textUserBalance).text.toString().toLong()
-            // Code here executes on main thread after user presses button
-            //val nameText = userNameText.text.toString()
-            //val amountText = userAmountText.text.toString()
-            //val collectedText = userCollectedText.text.toString()
-            //val balanceText = userBalanceText.text.toString()
             val date = Timestamp(c.time)
 
             saveFireStore(nameText, amountText, collectedText, balanceText, date)

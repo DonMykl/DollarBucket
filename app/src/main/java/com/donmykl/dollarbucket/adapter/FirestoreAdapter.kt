@@ -9,7 +9,6 @@ import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
-import java.lang.Exception
 
 abstract class FirestoreAdapter<VH: RecyclerView.ViewHolder>(
     private val query: Query
