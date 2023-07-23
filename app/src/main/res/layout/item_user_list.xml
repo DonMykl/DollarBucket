@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="4dp"
-        app:cardElevation="4dp"
+        style="?attr/materialCardViewElevatedStyle"
         app:cardUseCompatPadding="true"
-        app:contentPadding="16dp" >
+        app:contentPadding="16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -19,7 +19,7 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                app:tint="@color/teal_200"
+                app:tint="@color/material_dynamic_tertiary50"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -38,7 +38,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="@string/name"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -52,6 +52,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="@string/amount"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="?android:attr/textColorSecondary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/textName" />
@@ -65,6 +66,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="@string/collected"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="?android:attr/textColorSecondary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/textAmount" />
@@ -78,6 +80,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="@string/balance"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="?android:attr/textColorSecondary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/textCollected" />
@@ -91,6 +94,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="@string/date"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="?android:attr/textColorSecondary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/textBalance" />

@@ -38,7 +38,7 @@ class AddUserListFragment : Fragment(){
             c.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
             val myFormat = "dd.MM.yyyy"
-            val sdf = SimpleDateFormat(myFormat, Locale.US)
+            val sdf = SimpleDateFormat(myFormat, Locale.UK)
             textView.text = sdf.format(c.time)
             //button click to show DatePickerDialog
         }
@@ -55,7 +55,7 @@ class AddUserListFragment : Fragment(){
             val amountText = view.findViewById<EditText>(R.id.textUserAmount).text.toString().toLong()
             val collectedText = view.findViewById<EditText>(R.id.textUserCollected).text.toString().toLong()
             val balanceText = view.findViewById<EditText>(R.id.textUserBalance).text.toString().toLong()
-            val date = Timestamp(c.time)
+            val date = Timestamp.now()
 
             saveFireStore(nameText, amountText, collectedText, balanceText, date)
 
