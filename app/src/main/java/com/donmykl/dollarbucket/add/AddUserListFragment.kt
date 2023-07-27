@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
+
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.donmykl.dollarbucket.R
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
@@ -29,7 +30,7 @@ class AddUserListFragment : Fragment(){
 
 
         val textView: TextView = view.findViewById(R.id.tv_picked_date)
-        textView.text = SimpleDateFormat("dd.MM.yyyy").format(System.currentTimeMillis())
+        textView.text = SimpleDateFormat("MM/dd/yyyy", Locale.US).format(System.currentTimeMillis())
         val pickDateBtn : ImageButton = view.findViewById(R.id.button_pick_date)
 
         val dpd = DatePickerDialog.OnDateSetListener{ view, year, monthOfYear, dayOfMonth ->
@@ -37,9 +38,9 @@ class AddUserListFragment : Fragment(){
             c.set(Calendar.MONTH, monthOfYear)
             c.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
-            val myFormat = "dd.MM.yyyy"
-            val sdf = SimpleDateFormat(myFormat, Locale.UK)
-            textView.text = sdf.format(c.time)
+            //val myFormat = "dd.MM.yyyy"
+            //val sdf = SimpleDateFormat(myFormat, Locale.US)
+            //textView.text = sdf.format(c.time)
             //button click to show DatePickerDialog
         }
         pickDateBtn.setOnClickListener{
@@ -51,11 +52,11 @@ class AddUserListFragment : Fragment(){
         val button: Button = view.findViewById(R.id.button_save)
         button.setOnClickListener {
 
-            val nameText = view.findViewById<EditText>(R.id.textUserName).text.toString()
-            val amountText = view.findViewById<EditText>(R.id.textUserAmount).text.toString().toLong()
-            val collectedText = view.findViewById<EditText>(R.id.textUserCollected).text.toString().toLong()
-            val balanceText = view.findViewById<EditText>(R.id.textUserBalance).text.toString().toLong()
-            val date = Timestamp.now()
+            val nameText = view.findViewById<TextInputEditText>(R.id.textUserNameEt).text.toString()
+            val amountText = view.findViewById<TextInputEditText>(R.id.textUserAmountEt).text.toString().toLong()
+            val collectedText = view.findViewById<TextInputEditText>(R.id.textUserCollectedEt).text.toString().toLong()
+            val balanceText = view.findViewById<TextInputEditText>(R.id.textUserBalanceEt).text.toString().toLong()
+            val date = Timestamp(c.time)
 
             saveFireStore(nameText, amountText, collectedText, balanceText, date)
 

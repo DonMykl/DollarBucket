@@ -25,7 +25,7 @@ abstract class FirestoreAdapter<VH: RecyclerView.ViewHolder>(
     }
     open fun stopListening() {
         if (registration == null) {
-            registration!!.remove()
+            registration?.remove()
             registration = null
         }
         snapshots.clear()
@@ -41,15 +41,24 @@ abstract class FirestoreAdapter<VH: RecyclerView.ViewHolder>(
             return
         }
         //Dispatch the event
-        for (change in documentSnapshots!!.documentChanges) {
-            //Snapshot for the changed document
-            when (change.type) {
-                //New document was added to set of documents matching query
-                DocumentChange.Type.ADDED -> onDocumentAdded(change)
-                //New Document within the query was modified
-                DocumentChange.Type.MODIFIED -> onDocumentModified(change)
-                //Document removed, deleted, no longer matches the query
-                DocumentChange.Type.REMOVED -> onDocumentRemoved(change)
+        if (documentSnapshots != null) {
+
+            for (change in documentSnapshots.documentChanges) {
+                //Snapshot of the changed document
+                when (change.type) {
+                    //New document was added to set of documents matching query
+                    DocumentChange.Type.ADDED -> {
+                        onDocumentAdded(change)
+                    }
+                    //New Document within the query was modified
+                    DocumentChange.Type.MODIFIED -> {
+                        onDocumentModified(change)
+                    }
+                    //Document removed, deleted, no longer matches the query
+                    DocumentChange.Type.REMOVED -> {
+                        onDocumentRemoved(change)
+                    }
+                }
             }
         }
     }
