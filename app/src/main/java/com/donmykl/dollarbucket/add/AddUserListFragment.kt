@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.donmykl.dollarbucket.R
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.transition.MaterialFadeThrough
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
@@ -61,6 +62,7 @@ class AddUserListFragment : Fragment(){
             saveFireStore(nameText, amountText, collectedText, balanceText, date)
 
         }
+        exitTransition = MaterialFadeThrough()
         return view
     }
     fun saveFireStore(
