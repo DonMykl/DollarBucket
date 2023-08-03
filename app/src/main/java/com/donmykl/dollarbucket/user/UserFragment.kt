@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.donmykl.dollarbucket.R
 import com.donmykl.dollarbucket.adapter.UsersAdapter
+import com.google.android.material.transition.MaterialFadeThrough
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
@@ -23,6 +24,7 @@ class UserFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         adapter = UsersAdapter(query)
         recyclerView.adapter = adapter
+        enterTransition = MaterialFadeThrough()
         return view
 
     }
