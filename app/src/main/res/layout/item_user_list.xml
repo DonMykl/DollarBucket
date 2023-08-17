@@ -11,6 +11,9 @@
         app:cardCornerRadius="4dp"
         style="?attr/materialCardViewElevatedStyle"
         app:cardUseCompatPadding="true"
+        android:focusable="true"
+        app:cardBackgroundColor="?attr/colorSurfaceContainerLow"
+        app:rippleColor="?attr/colorOnSurfaceVariant"
         app:contentPadding="16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
