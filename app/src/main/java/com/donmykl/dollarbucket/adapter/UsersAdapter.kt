@@ -38,5 +38,8 @@ class UsersAdapter(query: Query):FirestoreAdapter<UsersAdapter.UsersViewHolder>(
     override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
         getSnapshot(position)?.let { snapshot -> holder.bind(snapshot) }
     }
+    fun deleteItem(position: Int,) {
+        getSnapshot(position)?.reference?.delete()
+    }
 
 }
