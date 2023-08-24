@@ -14,4 +14,8 @@
     <string name="user_balance" />
     <string name="date_displayed_here">Date Displayed here</string>
     <string name="displayed_date">Date</string>
+    <string name="amount_paid">Amount Paid</string>
+    <string name="tvAmount" type="id">Amount Paid</string>
+    <string name="buckets_collected">Collected</string>
+    <string name="buckets_balance">Balance</string>
 </resources>

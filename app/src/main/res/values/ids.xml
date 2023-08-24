@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="linear_one" type="id"/>
+    <item name="linear_two" type="id"/>
+    <item name="linear_three" type="id"/>
+</resources>
