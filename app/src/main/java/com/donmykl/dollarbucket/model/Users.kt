@@ -7,10 +7,10 @@ import kotlinx.parcelize.Parcelize
 
 @IgnoreExtraProperties
 @Parcelize
-data class Users (
+data class Users(
     var name: String? = null,
     var amount: Long? = null,
     var collected: Long? = null,
-    var balance:Long? = null,
+    var balance: Long? = null,
     var date: Timestamp? = null,
 ) : Parcelable

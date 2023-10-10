@@ -10,11 +10,12 @@ import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
 
-abstract class FirestoreAdapter<VH: RecyclerView.ViewHolder>(
+abstract class FirestoreAdapter<VH : RecyclerView.ViewHolder>(
     private val query: Query
 ) : RecyclerView.Adapter<VH>(), EventListener<QuerySnapshot> {
     //Function to listen to document changes, we call this function in our activity whenever we need to get data
     private var registration: ListenerRegistration? = null
+
     //Snapshot variable for ArrayList of type DocumentSnapshot that has all the doc snapshots we will work with
     private val snapshots = ArrayList<DocumentSnapshot>()
 
@@ -23,6 +24,7 @@ abstract class FirestoreAdapter<VH: RecyclerView.ViewHolder>(
             registration = query.addSnapshotListener(this)
         }
     }
+
     open fun stopListening() {
         if (registration == null) {
             registration?.remove()
@@ -33,7 +35,8 @@ abstract class FirestoreAdapter<VH: RecyclerView.ViewHolder>(
 
     override fun onEvent(
         documentSnapshots: QuerySnapshot?,
-        exception: FirebaseFirestoreException?) {
+        exception: FirebaseFirestoreException?
+    ) {
 
         //To handle errors
         if (exception != null) {
@@ -62,6 +65,7 @@ abstract class FirestoreAdapter<VH: RecyclerView.ViewHolder>(
             }
         }
     }
+
     //Methods for document changes, made to 'snapshots' variable
     protected open fun onDocumentAdded(change: DocumentChange) {
         //Each time changes are made we use their index to do it correctly
@@ -69,6 +73,7 @@ abstract class FirestoreAdapter<VH: RecyclerView.ViewHolder>(
         //We notify those changes with the index
         notifyItemInserted(change.newIndex)
     }
+
     protected open fun onDocumentModified(change: DocumentChange) {
         if (change.oldIndex == change.newIndex) {
             //Item changed but remained in the same position
@@ -81,6 +86,7 @@ abstract class FirestoreAdapter<VH: RecyclerView.ViewHolder>(
             notifyItemMoved(change.oldIndex, change.newIndex)
         }
     }
+
     protected open fun onDocumentRemoved(change: DocumentChange) {
         snapshots.removeAt(change.oldIndex)
         notifyItemRemoved(change.oldIndex)
@@ -89,6 +95,7 @@ abstract class FirestoreAdapter<VH: RecyclerView.ViewHolder>(
     override fun getItemCount(): Int {
         return snapshots.size
     }
+
     protected open fun getSnapshot(index: Int): DocumentSnapshot? {
         return snapshots[index]
     }

@@ -4,7 +4,50 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintTop_toTopOf="parent"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/icon_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_name"
+        android:importantForAccessibility="no"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textUserName"
+        app:layout_constraintBottom_toBottomOf="@id/textUserName" />
+
+    <ImageView
+        android:id="@+id/icon_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_amount"
+        android:importantForAccessibility="no"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textUserAmount"
+        app:layout_constraintBottom_toBottomOf="@id/textUserAmount" />
+
+    <ImageView
+        android:id="@+id/icon_collected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_collected"
+        android:importantForAccessibility="no"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textUserCollected"
+        app:layout_constraintBottom_toBottomOf="@id/textUserCollected" />
+
+    <ImageView
+        android:id="@+id/icon_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_balance"
+        android:importantForAccessibility="no"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textUserBalance"
+        app:layout_constraintBottom_toBottomOf="@id/textUserBalance" />
+
+
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -12,11 +55,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name"
-            android:layout_margin="10dp"
+            android:layout_marginStart="32dp"
             android:ems="10"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/icon_name"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -31,10 +74,11 @@
             android:id="@+id/textUserAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="32dp"
+            android:paddingTop="8dp"
             android:hint="@string/amount"
-            app:layout_constraintEnd_toEndOf="@+id/textUserName"
-            app:layout_constraintStart_toStartOf="@+id/textUserName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/icon_amount"
             app:layout_constraintTop_toBottomOf="@+id/textUserName">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textUserAmountEt"
@@ -48,10 +92,11 @@
             android:id="@+id/textUserCollected"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="32dp"
+            android:paddingTop="8dp"
             android:hint="@string/collected"
             app:layout_constraintEnd_toEndOf="@+id/textUserAmount"
-            app:layout_constraintStart_toStartOf="@+id/textUserAmount"
+            app:layout_constraintStart_toEndOf="@id/icon_collected"
             app:layout_constraintTop_toBottomOf="@+id/textUserAmount">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textUserCollectedEt"
@@ -65,10 +110,12 @@
             android:id="@+id/textUserBalance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="32dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:hint="@string/balance"
             app:layout_constraintEnd_toEndOf="@+id/textUserCollected"
-            app:layout_constraintStart_toStartOf="@+id/textUserCollected"
+            app:layout_constraintStart_toEndOf="@id/icon_collected"
             app:layout_constraintTop_toBottomOf="@+id/textUserCollected">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textUserBalanceEt"
@@ -78,39 +125,24 @@
         </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_picked_date"
-            android:layout_width="334dp"
-            android:layout_height="45dp"
-            android:hint="@string/date"
-            android:padding="5dp"
-            app:layout_constraintEnd_toStartOf="@+id/button_pick_date"
-            app:layout_constraintRight_toLeftOf="@+id/button_pick_date"
 
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textUserBalance" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_picked_date"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:hint="@string/date"
+        android:paddingTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/textUserBalance"
+        app:layout_constraintTop_toBottomOf="@id/textUserBalance" />
 
 
-        <ImageButton
-            android:id="@+id/button_pick_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:calendarViewShown="false"
-            style="@style/ThemeOverlay.Material3.Button.ElevatedButton"
-            android:src="@drawable/calendar_month_db"
-            app:layout_constraintEnd_toEndOf="@id/textUserBalance"
-            app:layout_constraintLeft_toRightOf="@id/tv_picked_date"
-            app:layout_constraintTop_toBottomOf="@+id/textUserBalance" />
-
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/save"
-            app:layout_constraintEnd_toEndOf="@+id/button_pick_date"
-            app:layout_constraintTop_toBottomOf="@+id/button_pick_date" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
